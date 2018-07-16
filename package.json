@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Andrew Mead",
-  "license": "MIT",
+	"license": "MIT",
   "scripts": {
     "serve": "live-server public/",
     "build:dev": "webpack",
@@ -11,7 +11,7 @@
     "dev-server": "webpack-dev-server",
 		"test": "jest --config=jest.config.json",
 		"start": "node server/server.js",
-		"heroku-postbuild": "yarn run build:prod"
+		"heroku-postbuild": "yarn run build:prodst"
   },
   "dependencies": {
     "babel-cli": "6.24.1",
@@ -48,5 +48,8 @@
     "validator": "8.0.0",
     "webpack": "3.1.0",
     "webpack-dev-server": "2.5.1"
-  }
+	},
+	"engines": {
+		"node": "9.2.0"
+	}
 }
