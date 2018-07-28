@@ -6,7 +6,7 @@ import { EditExpensePage } from '../../components/EditExpensePage';
 let startEditExpense, startRemoveExpense, history, wrapper;
 
 beforeEach(() => {
-	startEditExpense = jest.fn();
+	 startEditExpense = jest.fn();
 	 startRemoveExpense = jest.fn();
 	 history = { push:  jest.fn() };
 	 wrapper = shallow(
