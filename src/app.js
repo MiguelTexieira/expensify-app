@@ -10,6 +10,7 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import {firebase} from './firebase/firebase';
+import LoadingPage from './components/LoadingPage';
 
 const store = configureStore();
 
@@ -27,7 +28,7 @@ const renderApp = () => {
 	}
 };
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
 	if (user) {
@@ -44,3 +45,40 @@ firebase.auth().onAuthStateChanged((user) => {
 		history.push('/');
 	}
 });
+
+
+// {
+//   "rules": {
+//     ".read": false,
+//     ".write": false,
+//     "users": {
+// 			"$user_id": {
+//         ".read": "$user_id === auth.uid",
+//         ".write": "$user_id === auth.uid",
+//         "expenses": {
+//           "$expense_id": {
+//             ".validate": "newData.hasChildren(['description', 'note', 'createdAt', 'amount' ])",
+//             "desription": {
+//               ".validate": "newData.isString() && newData.val().length > 0"
+//             },
+//             "note": {
+//               ".validate": "newData.isString()"
+//             },
+//             "createdAt": {
+//               ".validate": "newData.isNumber()"
+//             },
+//             "amount": {
+//               ".validate": "newData.isNumber()"
+//             },
+//             "$other": {
+//               ".validate": false
+//             }
+//           }
+//         },
+//         "$other": {
+//           ".validate": false
+//         }
+//       }
+//     }
+//   }
+// }
